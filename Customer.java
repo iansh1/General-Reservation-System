@@ -1,5 +1,5 @@
 
-//getting and storing customer data
+// storing customer data
 public class Customer {
     private String name;
     private String phoneNumber;
