@@ -19,6 +19,45 @@ public class Main {
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); //clear newline character
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter customer name: ");
+                    String name = scanner.nextLine();
+                    System.out.print("Enter phone number: ");
+                    String phone = scanner.nextLine();
+                    System.out.print("Enter party size: ");
+                    int partySize = scanner.nextInt();
+
+                    scanner.nextLine(); //clear newline
+                    System.out.print("Enter time slot: ");
+                    String timeSlot = scanner.nextLine();
+                    Customer customer = new Customer(name, phone, partySize);
+                    system.makeReservation(customer, timeSlot);
+                    break;
+                case 2:
+                    System.out.print("Enter phone number to cancel reservation: ");
+                    String phoneNumber = scanner.nextLine();
+                    system.cancelReservation(phoneNumber);
+                    break;
+                case 3:
+                    system.displayReservations();
+                    break;
+                case 4:
+                    system.displayWaitlist();
+                    break;
+                case 5:
+                    system.displayAvailableTables();
+                    break;
+                case 6:
+                    System.out.println("Exiting system.");
+                    scanner.close();
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Invalid choice. Try again.");
+            }
+        
         }
 
     }

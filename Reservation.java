@@ -8,4 +8,21 @@ public class Reservation {
         this.timeSlot = timeSlot;
         this.tableNumber = tableNumber;
     }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public String getTimeSlot() {
+        return timeSlot;
+    }
+
+    public int getTableNumber() {
+        return tableNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservation{customer=" + customer + ", timeSlot='" + timeSlot + "', tableNumber=" + tableNumber + "}";
+    }
 }

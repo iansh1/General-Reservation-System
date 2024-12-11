@@ -17,7 +17,9 @@ public class TableManager {
         availableTables.remove(tableSize);
     }
 
-
+    public void releaseTable(int tableSize) {
+        availableTables.add(tableSize);
+    }
 
 
 

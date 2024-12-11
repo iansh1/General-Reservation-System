@@ -33,9 +33,38 @@ public class ReservationSystem {
         reservations.put(customer.getPhoneNumber(), reservation);
         System.out.println("Reservation confirmed:" + reservation);
         return true;
-    
+    }
+        public boolean cancelReservation(String phoneNumber) {
+            Reservation reservation = reservations.remove(phoneNumber);
+            if (reservation != null) {
+                tableManager.releaseTable(reservation.getTableNumber());
+                availableTimeSlots.add(reservation.getTimeSlot());
+                System.out.println("Reservation canceled for " + reservation.getCustomer().getName());
+                if (!waitlist.isEmpty()) {
+                    Customer nextCustomer = waitlist.getNextCustomer();
+                    System.out.println("Notifying waitlisted customer:" + nextCustomer.getName());
+                }
+                return true;
+            }
+            System.out.println("No reservation found for phone number" + phoneNumber);
+            return false;    
 
 
+    }
+
+    public void displayReservations() {
+        System.out.println("Current Reservations:");
+        for (Reservation res : reservations.values()) {
+            System.out.println(res);
+        }
+    }
+
+    public void displayWaitlist() {
+        System.out.println("Current Waitlist: " + waitlist);
+    }
+
+    public void displayAvailableTables() {
+        System.out.println("Table Availability: " + tableManager);
     }
     
 }

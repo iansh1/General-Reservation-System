@@ -22,4 +22,9 @@ public class Waitlist {
         return waitlist.size();
     }
 
+    @Override
+    public String toString() {
+        return "Waitlist" + waitlist.toString();
+    }
+
 }
